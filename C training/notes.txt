@@ -1,0 +1,8 @@
+typing speed should be more + point
+
+statics local and global:
+
+extern: by nature global variable is extern
+
+register: research on that
+
