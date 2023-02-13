@@ -20,7 +20,7 @@ int main()
         printf(" %d ",temp);
         factorial=factorial*temp;
         temp++;
-        if(temp==number)
+        if(temp<=number)
         printf(" * ");
     }
 

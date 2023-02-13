@@ -8,5 +8,22 @@ Output:
 2 * 12 = 24
 3 * 8 = 24
 4 * 6 = 24
-
 */
+
+#include<stdio.h>
+int main()
+{
+    int number,i=1;
+    printf("enter the number: ");
+    scanf("%d",&number);
+
+    int temp=number;
+    while(i*temp==number)
+    {
+        printf("\n%d * %d = %d",i,temp,number);
+        i++;
+        temp=number/i;
+    }
+
+    return 0;
+}

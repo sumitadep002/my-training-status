@@ -23,12 +23,18 @@ int main()
     {
         i=temp%10;
         sum=i*i*i+sum;
+
+        printf("(%d * %d * %d)",i,i,i);
         temp= temp/10;
+        if(temp!=0)
+        printf(" + ");
+        else
+        printf(" = %d",sum);
     }
 
     if(sum==number)
-    printf("\n%d is a armstrong number",number);
+    printf(" is a armstrong number",number);
     else
-    printf("\n%d is not a armstrong number",number);
+    printf("%d is not a armstrong number",number);
     return 0;
 }
