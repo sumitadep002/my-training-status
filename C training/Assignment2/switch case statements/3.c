@@ -17,12 +17,12 @@ Employee with employee id 101 is working in "Sales" department as "Manager".
 
 int main()
 {
-    int Employeee_ID,Dept_No;
+    int Employeee_ID=0,Dept_No=0;
     char Designation_Code;
 
-    printf("\nenter your Designation Code: ");
+    printf("enter your Designation Code: ");
     scanf("%c",&Designation_Code);
-    printf("enter your Employee ID: ");
+    printf("\nenter your Employee ID: ");
     scanf("%d",&Employeee_ID);
     printf("\nenter your Department No: ");
     scanf("%d",&Dept_No);
