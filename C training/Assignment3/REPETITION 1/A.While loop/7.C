@@ -18,11 +18,17 @@ int main()
     scanf("%d",&number);
 
     int temp=number;
-    while(i*temp==number)
+    while( i < temp )
     {
-        printf("\n%d * %d = %d",i,temp,number);
-        i++;
         temp=number/i;
+        if((i*temp % number) == 0) //to check the divisiblity of the temp
+        printf("\n%d * %d = %d",i,temp,number);
+        else
+        {
+           i++;
+           continue;
+        }
+        i++;
     }
 
     return 0;
