@@ -4,12 +4,14 @@
 #include<stdio.h>
 int main()
 {
-    int marks[5];
+    int marks[5],average=0,total=0;
     printf("enter the marks for subjects: ");
     for(int i=0;i<5;i++)
     {
-        printf("marks in subject[%d]",i);
+        printf("\nmarks in subject[%d]",i);
         scanf("%d",&marks[i]);
+        total = total + marks[i];
     }
+    printf("\ntotal marks= %d and average=%d",total,total/5);
     return 0;
 }
