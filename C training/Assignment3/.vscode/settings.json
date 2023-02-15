@@ -1,5 +1,10 @@
 {
     "files.associations": {
-        "7.C": "cpp"
+        "7.C": "cpp",
+        "13.C": "cpp",
+        "22B.C": "cpp",
+        "23.C": "cpp",
+        "21.C": "cpp",
+        "16.C": "cpp"
     }
 }
