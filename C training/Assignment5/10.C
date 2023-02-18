@@ -51,7 +51,7 @@
 
             index=search_array(ptr,n,search_number);
             if(index!=-NULL)
-            printf("\nindex value of %d is %c",search_number,search_array(ptr,n,search_number));
+            printf("\nindex value of %d is %d",search_number,search_array(ptr,n,search_number));
             else
             printf("%d does on exists",search_number);
         }

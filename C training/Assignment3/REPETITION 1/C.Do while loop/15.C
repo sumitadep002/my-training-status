@@ -3,50 +3,67 @@ Modify the menu driven program for four function calculator. Add a menu item to 
 option exit. The program continues till user chooses option exit.
 */
 
-#include<stdio.h>
+#include <stdio.h>
+
 int main()
 {
-    int n1=0,n2=0;
+    int n1, n2;
     char option;
 
-    
+    do
     {
-        printf("\n'+' for addition,\n'-' for substraction\n'/' for division\n'*' for multiplication");
-        printf("\nenter 'e' or 'E' to exit");
-        printf("\nenter your choice:");
-        scanf("%c",&option);
-        switch(option)
+        printf("\n'+' for addition,\n'-' for subtraction\n'/' for division\n'*' for multiplication");
+        printf("\nEnter 'e' or 'E' to exit\nEnter your choice: ");
+        scanf(" %c", &option);
+
+        switch (option)
         {
-            case '+':printf("enter n1: ");
-                    scanf("%d",&n1);
-                    printf("enter n1: ");
-                    scanf("%d",&n2);
-                    printf("%d + %d = %d",n1,n2,n1+n2);
-                     break;
-            case '*':printf("enter n1: ");
-                    scanf("%d",&n1);
-                    printf("enter n1: ");
-                    scanf("%d",&n2);
-                    printf("%d * %d = %d",n1,n2,n1*n2);
-                     break;
-            case '-':printf("enter n1: ");
-                    scanf("%d",&n1);
-                    printf("enter n1: ");
-                    scanf("%d",&n2);
-                    printf("%d - %d = %d",n1,n2,n1-n2);
-                     break;
-            case '/':printf("enter n1: ");
-                    scanf("%d",&n1);
-                    printf("enter n1: ");
-                    scanf("%d",&n2);
-                    printf("%d / %d = %d",n1,n2,n1/n2);
-                     break;
-            default: printf("error occured");
+        case '+':
+            printf("Enter n1: ");
+            scanf("%d", &n1);
+            printf("Enter n2: ");
+            scanf("%d", &n2);
+            printf("%d + %d = %d\n", n1, n2, n1 + n2);
+            break;
+        case '-':
+            printf("Enter n1: ");
+            scanf("%d", &n1);
+            printf("Enter n2: ");
+            scanf("%d", &n2);
+            printf("%d - %d = %d\n", n1, n2, n1 - n2);
+            break;
+        case '/':
+            printf("Enter n1: ");
+            scanf("%d", &n1);
+            printf("Enter n2: ");
+            scanf("%d", &n2);
+            if (n2 == 0)
+            {
+                printf("Error: division by zero\n");
+            }
+            else
+            {
+                printf("%d / %d = %d\n", n1, n2, n1 / n2);
+            }
+            break;
+        case '*':
+            printf("Enter n1: ");
+            scanf("%d", &n1);
+            printf("Enter n2: ");
+            scanf("%d", &n2);
+            printf("%d * %d = %d\n", n1, n2, n1 * n2);
+            break;
+        case 'e':
+        case 'E':
+            printf("You have chosen to exit\n");
+            break;
+        default:
+            printf("Error: Invalid input\n");
+            break;
+        }
+    } while (option != 'e' && option != 'E');
 
-        }while(option!='e' || option!='E');
-        printf("\n you have successfully exited your program");
-
-    }
+    printf("You have successfully exited the program\n");
 
     return 0;
 }

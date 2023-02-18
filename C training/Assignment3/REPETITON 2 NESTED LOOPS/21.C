@@ -3,33 +3,28 @@
 Input: 7
 Output: 11 13 17 19 23
 */
-#include<stdio.h>
-int main()
-{
+#include <stdio.h>
+
+int main() {
     int number;
 
-    printf("enter the number: ");
-    scanf("%d",&number);
+    printf("Enter the number: ");
+    scanf("%d", &number);
     printf("\n");
-    int count=0,flag=0;
 
-    for(int i=number+1;count<=5;i++)
-    {
-        for(int j=2;j<i;j++)
-        {
-            if(i%j==0)
-            {
-                flag=1;
-                printf("\nflag == 1");
+    int count = 0, flag;
+
+    for (int i = number + 1; count < 5; i++) {
+        flag = 0;
+        for (int j = 2; j < i; j++) {
+            if (i % j == 0) {
+                flag = 1;
                 break;
             }
         }
-        if(flag=0)
-        {
-        printf(" %d ",i);
-        flag = 1;
-        printf("\nflag=0");
-        count++;
+        if (flag == 0) {
+            printf("%d ", i);
+            count++;
         }
     }
     return 0;

@@ -6,18 +6,20 @@ a. Prime numbers between 1 to 100
 #include<stdio.h>
 int  main()
 {
+    int is_prime=0;
     for(int i=2,count=0;i<=100;i++)
     {
-    for(int j=1;j<=i;j++)
+        is_prime=0;
+    for(int j=2;j<i;j++)
     {
         if(i%j==0)
         {
-            count++;
-            if(count>2)
-            break;
+           is_prime=1;
+           break;
         }
+            
     }
-    if(count==2)
+    if(!is_prime)
     printf(" %d ",i);
 
     }

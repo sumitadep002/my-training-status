@@ -45,5 +45,5 @@ int fact(int n)
 }
 int combination(int n,int r)
 {
-    return(fact(n)/fact(n-r)/fact(r));
+    return(fact(n)/(fact(n-r)*fact(r)));
 }
