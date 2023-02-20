@@ -11,20 +11,10 @@ int main()
     printf("enter the year: ");
     scanf("%d",&year);
 
-    if(year%4==0 && year%100==0)
-    {
-        if(year%100==0)
-        {
-            if(year%400==0)
-            printf("%d is a leap year (it has 366 days)",year);
-            else
-            printf("%d is not a leap year (it has 365 days)",year);
-        }
-        else
-        printf("%d is a leap year (it has 366 days)",year);
-    }
+    if(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))
+    printf("\n %d is leap year and has 366 days",year);
     else
-    printf("%d is not a leap year (it has 365 days)",year);
+    printf("\n %d is not a leap year has 365 days");
 
 
     return 0;

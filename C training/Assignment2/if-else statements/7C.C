@@ -4,3 +4,13 @@ year is a leap year if it is divisible by 4 but not by 100, except that years di
 years. 
 c. Conditional operator
 */
+#include<stdio.h>
+int main()
+{
+    int year=0,days=0;
+    printf("enter the year ");
+    scanf("%d",&year);
+
+    (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) ? printf("\n%d is not a leap year has 365 days",year):printf("\n%d is not a leap year has 365 days",year);
+    return 0;
+}

@@ -18,7 +18,7 @@ int main()
     printf("\nenter the range from: ");
     scanf("%d",&range_lower);
     printf("to: ");
-    scanf("%d",&range_lower);
+    scanf("%d",&range_upper);
 
     prime_range(range_lower,range_upper);
     return 0;
@@ -41,7 +41,7 @@ void prime_range(int a,int b)
 {
     for(int i=a;i<=b;i++)
     {
-        if(prime(i)==1)
+        if(prime(i)!=0)
         printf(" %d ",i);
     }
 }
