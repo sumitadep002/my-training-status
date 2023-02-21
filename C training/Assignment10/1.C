@@ -12,16 +12,14 @@ int main()
     if (f == NULL)
     {
         printf("unable to open file");
+        for(i=0;feof(f))
+        {
+            if(fgetc(f) == '\t')
+        }
     }
     else
     {
         printf("file opened successfully");
-    }
-    printf("\nmessage: ");
-    
-    while (fgets(message,20,f)!=NULL)
-    {
-        printf("%s",message);
     }
     
 
