@@ -7,21 +7,27 @@ int main()
 {
     FILE *f;
     int i=0;
-    char message[100] ;
+    int tab=0,space=0,line=0;
     f = fopen("a.txt", "r");
     if (f == NULL)
     {
         printf("unable to open file");
-        for(i=0;feof(f))
-        {
-            if(fgetc(f) == '\t')
-        }
     }
     else
     {
         printf("file opened successfully");
+        for(i=0;fgetc(f)!=EOF;i++)
+        {
+            if(fgetc(f) == '\t')
+            tab++;
+            else if(fgetc(f) == 32)
+            space++;
+            else if(fgetc(f)=='\n')
+            line++;
+        }
     }
     
+    printf("\nlines %d\nspaces %d\ntabs %d\n",line,space,tab);
 
 
     fclose(f);

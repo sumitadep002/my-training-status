@@ -6,10 +6,11 @@ int main()
     int number,factorial=1;
 
     printf("enter the number: ");
-    scanf("%c",&number);
+    scanf("%d",&number);
 
     for(int i=1;i<=number;i++)
     factorial=factorial*i;
+
     printf("\n%d",factorial);
 
     return 0;

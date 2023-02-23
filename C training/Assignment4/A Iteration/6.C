@@ -30,7 +30,7 @@ void pascal_triangle(int number_of_rows)
         {
             if(j>=6-i && j<=4+i && (k==0))
             {
-                printf(" %d ",combination(i,count));
+                printf(" %2d ",combination(i,count));
                 k=1;
                 count++;
             }

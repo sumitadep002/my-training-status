@@ -11,11 +11,12 @@ is 32,767 or larger). The rand( ) function requires the header <stdlib.h>
 
 #include <stdio.h>
 #include <stdlib.h>
+#include<time.h>
 int main()
 {
     int magic_number = 0, chance = 10, input_number;
     int max_range = 1000;
-
+    srand(time(NULL));
     //this will generate random number between 1 to 1000
     magic_number = rand() % max_range + 1;
 
@@ -26,7 +27,7 @@ int main()
     printf("\n________________Let's  START______________\n");
     for (chance = 1; chance <= 10; chance++)
     {
-        printf("enter the number= ");
+        printf("\nenter the number= ");
         scanf("%d", &input_number);
         printf("\nattempts left %d", 10 - chance);
         if (magic_number == input_number)

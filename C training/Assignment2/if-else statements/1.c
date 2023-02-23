@@ -12,9 +12,10 @@ int main()
     printf("enter second number :");
     scanf("%f",&second_number);
 
+    if(second_number == 0)
+    printf("ERROR: you have entered 0 as diviser which not not valid");
+    else
     printf("\nfirst_number/second number %f",first_number/second_number);
-
-    printf("\nsecond_number/first_number %f",second_number/first_number);
 
 
     return 0;

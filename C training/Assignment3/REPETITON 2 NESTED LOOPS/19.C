@@ -27,7 +27,7 @@ int main()
     {
         for(int j=lower;j<=higher;j++)
         {
-            printf(" %d",i*j);
+            printf(" %3d",i*j);
             if(i*j<10)
             printf(" ");
         }
