@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include<string.h>
 
 void findAndReplace(char *str, char *find, char *replace) {
     int i, j, k, n, m;
