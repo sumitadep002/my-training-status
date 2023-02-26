@@ -15,6 +15,7 @@ str[20]
 */
 #include<stdio.h>
 
+
 int main()
 {
     struct A{

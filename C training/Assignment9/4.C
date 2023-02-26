@@ -14,19 +14,31 @@ struct employee{
     int year_of_joining;
 };
 typedef employee employee;
-int main()
+void get_employee(employee *e)
 {
-    employee e;
     printf("enter the employee id ");
-    scanf("%d",&e.empid);
+    scanf("%d",e->empid);
     printf("enter the employee name ");
     fflush(stdin);
-    gets(e.name);
+    gets(e->name);
     printf("enter the employee salary ");
-    scanf("%d",&e.salary);
+    scanf("%d",e->salary);
     printf("enter the employee year of joining ");
-    scanf("%d",&e.year_of_joining);
+    scanf("%d",e->year_of_joining);
+}
+int main()
+{
+    employee e[5];
+    
+    for(int i=0;i<5;i++)
+    {
+    get_employee(&e[i]);
+    
+    }
+    
 
-    printf("\nname %s\nempid %d\nsalary %d\nyear of joining %d",e.name,e.empid,e.salary,e.year_of_joining);
+    
+
+    //printf("\nname %s\nempid %d\nsalary %d\nyear of joining %d",e.name,e.empid,e.salary,e.year_of_joining);
     return 0;
 }

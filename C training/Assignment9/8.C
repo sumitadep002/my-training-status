@@ -4,22 +4,24 @@ print a1.x, a1.ch
 Calculate size of union , offset of each member
 */
 #include<stdio.h>
-
 union A
 {
 int x;
 int y;
 char ch;
-}a1;
-a1.x=0x10;
-a1.y=0x1121;
-
+};
+union A a;
 int main()
 {
-    printf("%d %c",a1.x,a1.ch);
-    printf("\nsize of A %d",sizeof(A));
-    printf("\naddress of x %d",&a1.x);
-    printf("\naddress of y %d",&a1.y);
-    printf("\naddress of ch %d",&a1.ch);
-    return 0;
+    a.x=0x10; 
+    printf("\n%x",a.x);
+    a.y=0x65;
+    printf("\nx %x and y %x",a.x,a.y);
+
 }
+
+/*
+Since x and y share the same memory location in the union, 
+the assignment to y overwrites the value previously assigned to x. 
+Therefore, the value of x in the union is now 0x1121, which is equal to 4385 in decimal.
+*/
