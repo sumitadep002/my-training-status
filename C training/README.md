@@ -1,1 +1,1 @@
-this folder contains c assignments and code
+each and every assignment folder containes solved assignment programs with programming questions in pdf file format
