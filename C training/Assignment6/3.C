@@ -1,3 +1,6 @@
+/*
+ Write a function to remove all occurrences of given character from the string.
+*/
 #include <stdio.h>
 #include <string.h>
 
