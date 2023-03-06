@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "call_by_value_reference.C": "cpp",
-        "enum.C": "cpp",
-        "2D_array_double_pointer.C": "cpp",
-        "function_pointer.C": "cpp",
-        "memory_Layout.C": "cpp"
-    }
-}
