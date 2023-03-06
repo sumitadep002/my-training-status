@@ -1,0 +1,2 @@
+This is directory contanins 6 assignments done in c++ langauge (assignment 1 to 5 and assignment based on topics)
+each and every assignment folder contains a .pdf file which contains questions in it and solved c++ programming questiions.
