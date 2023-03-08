@@ -1,4 +1,3 @@
-This folder contains assignment 1- 10 with question file in .pdf format
-with it's solved programs
-
-there is also a folder named milestone project : "Milestone is the assignment/small project that is given to person during the training session."
+this directory contains a folder:
+Assgnment and project
+in it contains 10 assignment subfolder which contains solved problems and questions in .PDF file
