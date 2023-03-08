@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "insertion_overloading.C": "cpp",
+        "iosfwd": "cpp",
+        "1.C": "cpp",
+        "3.C": "cpp",
+        "4.C": "cpp",
+        "5.C": "cpp",
+        "iostream": "cpp",
+        "6.C": "cpp",
+        "2.C": "cpp",
+        "random": "cpp",
+        "algorithm": "cpp"
+    }
+}
