@@ -1,16 +1,8 @@
+C/GitIgnore/
+C++/GitIgnore/
+git_training/GitIgnore/
+linux/
 DSA/
-'linux sessions'/
 *.exe
-*'study material'/
-*some_extra_questions/
-*.vscode/
+vscode/
 *.png
-git_training/codewithharry/
-git_training/cloning example/
-git_training/screenshots/
-git_training/git_ignore.pdf
-
-
-c++/books/
-c++/topicwise_program/
-c++/Inheritance.CPP
