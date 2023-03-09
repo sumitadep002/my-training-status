@@ -4,5 +4,6 @@ Git_GitHub/GitIgnore/
 Linux/
 DSA/
 *.exe
-vscode/
+*.vscode/
 *.png
+tempCodeRunnerFile*

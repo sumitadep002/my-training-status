@@ -25,34 +25,13 @@ withdrawal fails :)
 
 */
 #include<iostream>
-#include<string>
+using namespace std;
 class Account{
-    private:
     string name;
-    double balance;
-    {
-        public:
-        void Addinterest()
-        {
+    float balance;
 
-        }
-    } // name;
-
-    
-};
-class SavingsAccount
-{
-private:
-    /* data */
-public:
-    SavingsAccount(/* args */);
-    ~SavingsAccount();
 };
 
-SavingsAccount::SavingsAccount(/* args */)
-{
-}
+class Savings_Account:Account{
 
-SavingsAccount::~SavingsAccount()
-{
 }
