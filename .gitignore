@@ -2,8 +2,9 @@ C/GitIgnore/
 C++/GitIgnore/
 Git_GitHub/GitIgnore/
 Linux/
-DSA/
+
 *.exe
 *.vscode/
 *.png
+*.jpg
 tempCodeRunnerFile*
