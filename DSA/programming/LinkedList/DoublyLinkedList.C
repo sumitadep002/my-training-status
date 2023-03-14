@@ -1,10 +1,11 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 
 struct node
 {
     int data;
-    node *link;
+    struct node *next, *prev;
 };
 typedef struct node node;
 
@@ -12,6 +13,7 @@ node *HEAD;
 node *TAIL;
 int count = 0;
 void reverse();
+void reverseOrder();
 void pushFront(int);
 void pushAt(int, int);
 void pushBack(int);
@@ -19,6 +21,7 @@ void delFront();
 void delEnd();
 void delAt(int);
 void print();
+void printReverse();
 int main()
 {
     HEAD = NULL;
@@ -36,13 +39,14 @@ int main()
         printf("\n4.Remove an element from front ");
         printf("\n5.Remove an element from end ");
         printf("\n6.Remove an element from nth position ");
-        printf("\n7.Show all elements of Linked List ");
-        printf("\n8.Reverse order of elements ");
-        printf("\n9.Quit ");
+        printf("\n7.Reverse order of elements ");
+        printf("\n8.Show all elements of nexted List ");
+        printf("\n9.print linked list in reverse order ");
+        printf("\n10.Quit ");
 
         printf("\n\nEnter you choice ");
         scanf("%d", &choice);
-        printf("\nsize of linked list %d\n", count);
+        printf("\nsize of nexted list %d\n", count);
         fflush(stdin);
 
         switch (choice)
@@ -72,89 +76,116 @@ int main()
         case 6:
             printf("\nenter position: ");
             scanf("%d", &position);
+            fflush(stdin);
             delAt(position);
             break;
         case 7:
-            print();
-            break;
-        case 8:
             reverse();
             break;
+        case 8:
+            print();
+            break;
         case 9:
+            printReverse();
+            break;
+        case 10:
             printf("\nOK\nprogram will be terminated");
             break;
 
         default:
             break;
         }
-    } while (choice != 9);
+    } while (choice != 10);
 
     return 0;
 }
 void pushFront(int x)
 {
-    node *temp = NULL;
-    temp = (node *)malloc(sizeof(node));
-    temp->data = x;
-    temp->link = HEAD;
     if (HEAD == NULL)
-        TAIL = temp;
-    HEAD = temp;
-
-    count++;
-}
-void print()
-{
-    node *temp = HEAD;
-    printf("List is: ");
-    while (temp != NULL)
     {
-        printf(" %d ", temp->data);
-        temp = temp->link;
-    }
-}
-void pushAt(int x, int pos = 1)
-{
-    node *trav, *temp;
-
-    if (pos == 1)
-    {
-        pushFront(x);
+        HEAD = (node *)malloc(sizeof(node));
+        HEAD->data = x;
+        HEAD->next = NULL;
+        HEAD->prev = NULL;
+        TAIL = HEAD;
         count++;
     }
     else
     {
-
-        trav = HEAD;
-        temp = (node *)malloc(sizeof(node));
-        temp->data = x;
-
-        for (int i = 1; i < pos - 1; i++)
-        {
-            trav = trav->link;
-        }
-        temp->link = trav->link;
-        trav->link = temp;
+        HEAD->prev = (node *)malloc(sizeof(node));
+        HEAD->prev->next=HEAD;
+        HEAD = HEAD->prev;
+        HEAD->data = x;
+        HEAD->prev = NULL;
         count++;
     }
+    
 }
 void pushBack(int x)
 {
 
-    if (TAIL == NULL || HEAD == NULL)
+    if (TAIL == NULL)
     {
         TAIL = (node *)malloc(sizeof(node));
+        TAIL->data = x;
+        TAIL->next = NULL;
+        TAIL->prev = NULL;
         HEAD = TAIL;
         count++;
     }
     else
     {
-        TAIL->link = (node *)malloc(sizeof(node));
-        TAIL = TAIL->link;
+        TAIL->next = (node *)malloc(sizeof(node));
+        TAIL->next->prev=TAIL;
+        TAIL = TAIL->next;
+        TAIL->data=x;
+        TAIL->next=NULL;
         count++;
     }
-    TAIL->data = x;
-    TAIL->link = NULL;
+    
+}
+void print()
+{
+    node *trav = HEAD;
+    printf("List is: ");
+    while (trav != NULL)
+    {
+        printf(" %d ", trav->data);
+        trav = trav->next;
+    }
+}
+void printReverse()
+{
+    node *temp = TAIL;
+    printf("List in reverse order: ");
+    while (temp != NULL)
+    {
+        printf(" %d ", temp->data);
+        temp = temp->prev;
+    }
+}
+void pushAt(int x, int pos = 1)
+{
+    node *trav;
+
+    if (pos == 1)
+    pushFront(x);
+    else if(pos==count)
+    pushBack(x);
+    else
+    {
+        trav = HEAD;
+        for (int i = 1; i < pos; i++)
+        {
+            trav = trav->next;
+        }
+        node *new_node=(node*)malloc(sizeof(node));
+        new_node->next=trav;
+        new_node->prev=trav->prev;
+        new_node->prev->next=trav;
+        new_node->next->prev=trav;
+        count++;
+    }
 }
 void delFront()
 {
@@ -163,76 +194,67 @@ void delFront()
         printf("\nNothing to delete");
         count = 0;
     }
-    else if (HEAD->link == NULL)
-    {
-        printf("\n%d is removed", HEAD->data);
-        HEAD = HEAD->link;
-        free(HEAD);
-        TAIL = NULL;
-        count--;
-    }
-    else
-    {
-        printf("\n%d is removed", HEAD->data);
-        node *temp = HEAD;
-        HEAD = HEAD->link;
-        free(temp);
-        count--;
-    }
-}
-void delEnd()
-{
-    if (HEAD == NULL)
-    {
-        printf("\nNothing to delete");
-        count = 0;
-    }
-    else if (HEAD->link == NULL)
+    else if (HEAD->next == NULL)
     {
         printf("\n%d is removed", HEAD->data);
         free(HEAD);
-        free(TAIL);
         HEAD = NULL;
         TAIL = NULL;
         count--;
     }
     else
     {
-        node *temp, *previous;
-        temp = HEAD;
-        while (temp->link != NULL)
-        {
-            TAIL = temp;
-            temp = temp->link;
-        }
-        TAIL->link = NULL;
-        free(temp);
+        printf("\n%d is removed", HEAD->data);
+        HEAD = HEAD->next;
+        free(HEAD->prev);
+        HEAD->prev = NULL;
         count--;
     }
+}
+void delEnd()
+{
+    if (TAIL == NULL)
+    {
+        printf("\nNothing to delete");
+        count = 0;
+    }
+    else if (TAIL->prev == NULL)
+    {
+        printf("\n%d is removed", TAIL->data);
+        free(HEAD);
+        free(TAIL);
+        HEAD = NULL;
+        TAIL = NULL;
+    }
+    else
+    {
+        printf("\n%d is removed", TAIL->data);
+        TAIL = TAIL->prev;
+        free(TAIL->next);
+        TAIL->next = NULL;        
+    }
+    count--;
 }
 void delAt(int pos)
 {
     if (pos == 1)
-    {
         delFront();
-        count--;
-    }
+    else if(pos == count)
+        delEnd();
     else
     {
 
-        node *garbage, *current;
-        current = HEAD;
+        node *current = HEAD;
 
-        for (int i = 1; i < pos - 1; i++)
-        {
-            current = current->link;
-        }
-        garbage = current->link;
-        printf("\n%d is removed", garbage->data);
-        current->link = garbage->link;
-        free(garbage);
+        for (int i = 1; i < pos ; i++)
+            current = current->next;
+
+        current->prev->next=current->next;
+        current->next->prev=current->prev;
+        
         count--;
     }
+    
 }
 void reverse()
 {
@@ -246,18 +268,37 @@ void reverse()
     while (iteration < count)
     {
         trav = HEAD;
-        while (number_comparison <= count-1)
+        while (number_comparison <= count - 1)
         {
             temp = trav->data;
 
-            temp_ptr = trav->link;
+            temp_ptr = trav->next;
 
             trav->data = temp_ptr->data;
             temp_ptr->data = temp;
-            trav = trav->link;
+            trav = trav->next;
             number_comparison++;
         }
         iteration++;
-        number_comparison=iteration;
+        number_comparison = iteration;
     }
+}
+
+void reverseOrder()
+{
+    struct node* prev = NULL;
+    struct node* current = HEAD;
+    struct node* next = NULL;
+    while (current != NULL) {
+        // Store next
+        next = current->next;
+ 
+        // Reverse current node's pointer
+        current->next = prev;
+ 
+        // Move pointers one position ahead.
+        prev = current;
+        current = next;
+    }
+    HEAD = prev;
 }
